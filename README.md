@@ -257,8 +257,8 @@ Request components:
 
 Response components:
 
-- Status code:
-- Headers:
+- Status code: 200
+- Headers: ('content-type','application/json)
 - Body:{
     "name": "Dani California",
     "lyrics": "..." ,
@@ -281,46 +281,82 @@ Response components:
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:"GET"
+- URL:/songs/:songId
+- Headers:none
+- Body:none
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: ('content-type','application/json)
+- Body:{
+    "name": "Dani California",
+    "lyrics": "...",
+    "trackNumber": 1,
+    "songId": 1,
+    "albumId": 1,
+    "album": {
+        "name": "Stadium Arcadium",
+        "albumId": 1,
+        "artistId": 1
+    },
+    "artist": {
+        "name": "Red Hot Chili Peppers",
+        "artistId": 1
+    }
+}
 
 ### Add a song to a specific album based on albumId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:"POST"
+- URL:/albums/:albumId/songs
+- Headers:('content-type','application/json)
+- Body:{
+    "name": true,
+    "lyrics": true,
+    "trackNumber": true,
+}
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:201
+- Headers: ('content-type','application/json)
+- Body:{
+    "name": "Imagine",
+    "lyrics": "hvbcjguyefugdjhabgfkjfuyadukgfluy",
+    "trackNumber": 2,
+    "songId": 2,
+    "albumId": 1
+}
 
 ### Edit a specified song by songId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:"PUT"
+- URL:/songs/:songId
+- Headers: ('content-type','application/json)
+- Body:Body:{
+    "name": "Imagine",
+    "lyrics": "1234567",
+    "trackNumber": 2
+}
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: ('content-type','application/json)
+- Body: {
+    "name": "Imagine",
+    "lyrics": "1234567",
+    "trackNumber": 2,
+    "songId": 2,
+    "albumId": 1,
+    "updatedAt": "2022-08-25T23:15:35.039Z"
+}
 
 ### Delete a specified song by songId
 
@@ -334,5 +370,5 @@ Request components:
 Response components:
 
 - Status code:
-- Headers:
+- Headers: ('content-type','application/json)
 - Body:
