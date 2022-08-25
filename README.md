@@ -72,46 +72,67 @@ Response components:
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:'DELETE'
+- URL:/artists/:artistId
+- Headers:none
+- Body:none
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:200
+- Headers: ('content-type','application/json)
+- Body:{
+    "message": "Sucessfully deleted"
+}
 
 ### Get all albums of a specific artist based on artistId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:'GET'
+- URL:/artists/:artistId/albums
+- Headers:none
+- Body:none
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code:200
+- Headers:('content-type','application/json)
+- Body:[{"name":"Stadium Arcadium","albumId":1,"artistId":1}]
 
 ### Get a specific album's details based on albumId
 
 Request components:
 
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method:'GET'
+- URL:/albums/:albumId
+- Headers:none
+- Body:none
 
 Response components:
 
-- Status code:
-- Headers:
-- Body:
+- Status code: 200
+- Headers: ('content-type','application/json)
+- Body: {
+    "name": "Stadium Arcadium",
+    "albumId": 1,
+    "artistId": 1,
+    "artist": {
+        "name": "Red Hot Chili Peppers",
+        "artistId": 1
+    },
+    "songs": [
+        {
+            "name": "Dani California",
+            "lyrics": "...",
+            "trackNumber": 1,
+            "songId": 1,
+            "createdAt": "2022-08-25T22:27:20.000Z",
+            "updatedAt": "2022-08-25T22:27:20.000Z",
+            "albumId": 1
+        }
+    ]
+}
 
 ### Add an album to a specific artist based on artistId
 
